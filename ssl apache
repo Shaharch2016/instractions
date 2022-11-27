@@ -1,0 +1,30 @@
+Best option would be to open free Cloudflare account and move domains nameservers there
+They automatically provide you with SSL certificate and attacks protection and you could disable ssl.conf on server
+
+If you prefer to manage it on your own, I attached our dash domains script which generates new certificates and renew existing ones whenever required
+Script also modifies the ssl.conf as required so you should back it up first
+
+$db_path is where the domains list is stored. Blank file for each domain
+Example:
+# ls -l DB/DOMAINS/|head
+-rw-r--r-- 1 root root 0 Sep 19 15:15 datalbase.com
+-rw-r--r-- 1 root root 0 Oct  1  2021 drive-photo.com
+-rw-r--r-- 1 root root 0 Sep 19 15:15 forexsmap.com
+$db_path2 you should leave blank value unless you want to use another folder for separate domains
+
+$pending_path is where new domains are added to
+Once certificate is created, server will move it to $db_path
+
+The .pem files should be stored in /etc/pki/tls/certs/
+
+The vhosts.conf file content should be added to your ssl.conf before you run the script
+It has 2 vhosts which should appear before all other vhosts. You can modify those vhosts if you'd like or keep as is
+First vhost in file is catch-all that shows error page for users visiting https:// URL of domains that don't exist in ssl.conf such as 'https://server_ip' or 'https://domain_not_listed.com'
+Second vhost is the api.appsway.net vhost. The script uses it as template for the added domains, so you must keep this part in ssl.conf
+
+You should update or disable the sendmail part of this script
+And backup the ssl.conf before running the script
+
+If you don't already have Crypt::LE installed on server then you should run:
+curl -L https://cpanmin.us | perl - App::cpanminus
+cpanm Crypt::LE
