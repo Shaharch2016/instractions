@@ -1,0 +1,16 @@
+
+975  yum search cpanm
+  976  perl-App-cpanminus
+  977  yum install perl-App-cpanminus
+  978  yum search date-manie
+  979  yum search date-manip
+  980  yum install perl-Date-Manip
+  981  cpanm App::cpanminus Archive::Zip App::cpanoutdated
+  982  cpanm --help
+  983  cpanm GD::Graph Chart::Plot
+  984  cpanoutdated -p
+  985  cpanoutdated -p | cpanm
+  986  cpanoutdated -p
+  987  cpanoutdated -p | cpanm
+  988  cpan-outdated -p
+  989  cpan-outdated -p | cpanm
