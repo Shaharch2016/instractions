@@ -1,3 +1,7 @@
 
 
 curl -X POST -H "Content-Type: application/json" -d '{"prompt": "What is ChatGPT?"}' <API URL>
+
+
+codes java - 
+https://platform.openai.com/codex-javascript-sandbox
