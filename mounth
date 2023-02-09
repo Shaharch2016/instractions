@@ -1,0 +1,17 @@
+
+
+
+client side - 
+mount -t nfs chaham.com:/share /share
+
+server
+
+vi /etc/exports
+
+cat /etc/exports
+/share 93.72.97.124(rw,sync,fsid=root)
+/share 213.111.76.202(rw,sync,fsid=root)
+
+
+sudo exportfs -a
+sudo systemctl restart nfs-server
