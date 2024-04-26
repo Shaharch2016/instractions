@@ -14,3 +14,17 @@ cpanoutdated -p
 cpanoutdated -p | cpanm
 cpan-outdated -p
 cpan-outdated -p | cpanm
+
+
+_________________________________________
+To install cpanm:
+curl -L https://cpanmin.us | perl - App::cpanminus
+
+The you should probably also install using cpanm the following:
+cpanm Archive::Zip App::cpanoutdated
+
+And to update all packages which will take very long:
+cpan-outdated -p | cpanm
+
+Or to view the list of packages require update:
+cpan-outdated -p 
